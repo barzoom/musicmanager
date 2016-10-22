@@ -1,0 +1,31 @@
+﻿@model IEnumerable<MusicFall2016.Models.Album>
+@{
+    ViewData["Title"] = "Albums";
+}
+    <h2>Album List</h2>
+    <a class="btn btn-sm btn-info" href="/Albums/Create" style="background-color:black;">Add an album</a>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Artist</th>
+                <th>Genre</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        @foreach (var album in Model)
+        {
+            <tr>
+                <td>@album.Title</td>
+                <td>@album.Artist.Name</td>
+                <td>@album.Genre.Name</td>
+                <td>@album.Price</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@album.AlbumID" class="btn btn-xs" style="color:white; border-color:lightblue; background-color:black;">Details</a>
+                    <a asp-action="Edit" asp-route-id="@album.AlbumID" class="btn btn-xs" style="color:white; border-color:lightblue; background-color:black;">Edit</a>
+                    <a asp-action="Delete" asp-route-id="@album.AlbumID" class="btn btn-xs" style="color:white; border-color:lightblue; background-color:black;">Delete</a>
+                </td>
+            </tr>
+        }
+    </table>
+

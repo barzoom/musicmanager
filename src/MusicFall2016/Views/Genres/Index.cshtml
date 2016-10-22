@@ -1,0 +1,20 @@
+﻿@model IEnumerable<MusicFall2016.Models.Genre>
+@{
+    ViewData["Title"] = "Genres";
+}
+<h2>Genre List</h2>
+<a class="btn btn-sm btn-danger" href="/Genres/Create" style="background-color:black;">Add a genre</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+        </tr>
+    </thead>
+    @foreach (var genre in Model)
+    {
+        <tr>
+            <td>@genre.Name</td>
+        </tr>
+    }
+    </table>
+

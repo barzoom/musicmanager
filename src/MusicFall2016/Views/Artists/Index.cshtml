@@ -1,0 +1,24 @@
+﻿@model IEnumerable<MusicFall2016.Models.Artist>
+@{
+    ViewData["Title"] = "Artists";
+}
+<h2>Artist List</h2>
+<a class="btn btn-sm btn-warning" href="/Artists/Create" style="background-color:black;">Add an artist</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Bio</th>
+            <th></th>
+        </tr>
+    </thead>
+    @foreach (var artist in Model)
+    {
+        <tr>
+            <td>@artist.Name</td>
+            <td>@artist.Bio</td>
+            <td><a class="btn btn-xs" style="color:white; border-color:darkorange; background-color:black;" href="/Artists/Details/@artist.ArtistID">Details</a></td>
+        </tr>
+    }
+    </table>
+

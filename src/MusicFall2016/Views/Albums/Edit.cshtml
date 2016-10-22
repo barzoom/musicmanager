@@ -1,0 +1,49 @@
+﻿@model MusicFall2016.Models.Album
+@{
+    ViewData["Title"] = "Edit an Album";
+}
+<h2>Edit Album</h2>
+<form asp-action="Edit" method="post">
+    <div class="form-horizontal">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="AlbumID" />
+        <div class="form-group">
+            <label asp-for="Title" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Title" class="form-control" value="@Model.Title" />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Artist" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <select asp-for="ArtistID" asp-items="ViewBag.ArtistList" data-val="true" data-val-required="The Artist field is required." value="@Model.ArtistID" id="ArtistID" name="ArtistID" class="form-control"></select>
+                <span asp-validation-for="ArtistID" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Genre" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <select asp-for="GenreID" asp-items="ViewBag.GenreList" data-val="true" data-val-required="The Genre field is required." value="@Model.GenreID" id="GenreID" name="GenreID" class="form-control"></select>
+                <span asp-validation-for="GenreID" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Price" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Price" class="form-control" value="@Model.Price" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-sm btn-info" style="background-color:black;" />
+                <a class="btn btn-sm btn-info" href="/Albums">Back to Albums</a>
+            </div>
+        </div>
+    </div>
+</form>
