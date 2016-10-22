@@ -111,21 +111,21 @@ namespace MusicFall2016.Controllers
             return RedirectToAction("Index");
         }
 
-        public IActionResult Details(int id)
+        public IActionResult Details(int? id)
         {
-            Artist a = _context.Artists.Select(id);
-            ViewBag.ArtistName = _context.Artists.ElementAt(id).Name;
-
-            var album = _context.Albums
-                .Include(a => a.Artist)
-                .Include(a => a.Genre).ToList()
-                .SingleOrDefault(a => a.AlbumID == id);
-                
-            if (album == null)
-            {E:\Downloads\MusicFall2016-master\MusicFall2016-master\src\MusicFall2016\wwwroot\
+            if (id == null)
+            {
                 return NotFound();
             }
-            return View(album);
+            var albums = _context.Albums
+                .Include(a => a.Artist)
+                .Include(a => a.Genre)
+                .SingleOrDefault(a => a.AlbumID == id);
+            if (albums == null)
+            {
+                return NotFound();
+            }
+            return View(albums);
         }
     }
 

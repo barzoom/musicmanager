@@ -3,7 +3,6 @@
     ViewData["Title"] = "Albums";
 }
 
-@ViewBag.ArtistName;
 <h2>Album Details</h2>
 <div class="row">
     <label class="col-md-2">Title</label>
@@ -11,15 +10,15 @@
 </div>
 <div class="row">
     <label class="col-md-2">Artist:</label>
-    <div class="col-md-10"></div>
+    <div class="col-md-10">@Model.Artist.Name</div>
 </div>
 <div class="row">
     <label class="col-md-2">Artist Bio:</label>
-    <div class="col-md-10"></div>
+    <div class="col-md-10">@Model.Artist.Bio</div>
 </div>
 <div class="row">
     <label class="col-md-2">Genre</label>
-    <div class="col-md-10"></div>
+    <div class="col-md-10">@Model.Genre.Name</div>
 </div>
 <div class="row">
     <label class="col-md-2">Price</label>
