@@ -12,7 +12,7 @@
                 <span asp-validation-for="Title" class="text-danger"></span>
             </div>
         </div>
-
+        </br>
         <div class="form-group">
             <label asp-for="Artist" class="col-md-2 control-label"></label>
             <div class="col-md-10">
@@ -21,14 +21,32 @@
             </div>
         </div>
 
+        <div class="form-group">
+            <label class="col-md-2 control-label">New Artist</label>
+            <div class="col-md-10">
+                <input asp-for="Artist.Name" name="newArtist" class="form-control" />
+                <span class="text-danger"></span>
+            </div>
+        </div>
+
+        </br>
             <div class="form-group">
              <label asp-for="Genre" class="col-md-2 control-label"></label>
-            <div class="col-md-10">
+                <div class="col-md-10">
                     <select asp-for="GenreID" asp-items="ViewBag.GenreList" data-val="true" data-val-required="The Genre field is required." id="GenreID" name="GenreID" class="form-control"></select>
                     <span asp-validation-for="GenreID" class="text-danger"></span>
-          </div>
                 </div>
+            </div>
 
+        <div class="form-group">
+            <label class="col-md-2 control-label">New Genre</label>
+            <div class="col-md-10">
+                <input asp-for="Genre.Name" name="newGenre" class="form-control" />
+                <span class="text-danger"></span>
+            </div>
+        </div>
+
+        </br>
         <div class="form-group">
             <label asp-for="Price" class="col-md-2 control-label"></label>
             <div class="col-md-10">

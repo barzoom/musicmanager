@@ -31,6 +31,14 @@ namespace MusicFall2016.Controllers
         {
             if (ModelState.IsValid)
             {
+                foreach (Genre genreTest in _context.Genres)
+                {
+                    var name = genreTest.Name;
+                    if (name == g.Name)
+                    {
+                        return RedirectToAction("Create");
+                    }
+                }
                 try { _context.Genres.Add(g); }
                 catch
                 {

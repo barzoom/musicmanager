@@ -34,6 +34,14 @@ namespace MusicFall2016.Controllers
         {
             if (ModelState.IsValid)
             {
+                foreach (Artist artistTest in _context.Artists)
+                {
+                    var name = artistTest.Name;
+                    if (name == a.Name)
+                    {
+                        return RedirectToAction("Create");
+                    }
+                }
                 try { _context.Artists.Add(a); }
                 catch
                 {

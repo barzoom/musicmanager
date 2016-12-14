@@ -2,17 +2,33 @@
 @{
     ViewData["Title"] = "Albums";
 }
-    <h2>Album List</h2>
-    <a class="btn btn-sm btn-info" href="/Albums/Create" style="background-color:black;">Add an album</a>
+<h2>Album List</h2>
+
+<form asp-controller="Albums" method="get" asp-action="Index">
+    <div class="form-group">
+        <input class="col-md-2 control-label" style="height:25px" value="" name="Search" />
+        <div>
+            <input type="submit" class="btn btn-xs btn-info" style="background-color:black; width:55px; height:25px; margin-left:5px;" value="Search" />
+        </div>
+    </div>
+</form>
+
+<br />
+<a class="btn btn-sm btn-info" href="/Albums/Create" style="background-color:black;">Add an album</a>
+
     <table class="table">
         <thead>
             <tr>
-                <th>Title</th>
-                <th>Artist</th>
-                <th>Genre</th>
-                <th>Price</th>
+                <th><a asp-action="Index" asp-route-sortOrder="@ViewBag.TitleSortParm">@Html.DisplayNameFor(model => model.Title)</a></th>
+                <th><a asp-action="Index" asp-route-sortOrder="@ViewBag.ArtistSortParm">Artist</a></th>
+                <th><a asp-action="Index" asp-route-sortOrder="@ViewBag.GenreSortParm">Genre</a></th>
+                <th><a asp-action="Index" asp-route-sortOrder="@ViewBag.PriceSortParm">@Html.DisplayNameFor(model => model.Price)</a></th>
+                <th><a asp-action="Index" asp-route-sortOrder="@ViewBag.LikeSortParm">@Html.DisplayNameFor(model => model.Likes)</a></th>
+
             </tr>
         </thead>
+
+        
         @foreach (var album in Model)
         {
             <tr>
@@ -20,12 +36,13 @@
                 <td>@album.Artist.Name</td>
                 <td>@album.Genre.Name</td>
                 <td>@album.Price</td>
+                <td>@album.Likes</td>
                 <td>
                     <a asp-action="Details" asp-route-id="@album.AlbumID" class="btn btn-xs" style="color:white; border-color:lightblue; background-color:black;">Details</a>
                     <a asp-action="Edit" asp-route-id="@album.AlbumID" class="btn btn-xs" style="color:white; border-color:lightblue; background-color:black;">Edit</a>
                     <a asp-action="Delete" asp-route-id="@album.AlbumID" class="btn btn-xs" style="color:white; border-color:lightblue; background-color:black;">Delete</a>
+                    <a asp-action="Like" asp-route-id="@album.AlbumID" class="btn btn-xs" style="color:white; border-color:lightblue; background-color:black;">Like</a>
                 </td>
             </tr>
         }
     </table>
-
