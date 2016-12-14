@@ -90,7 +90,7 @@ namespace MusicFall2016.Controllers
             
             if (ModelState.IsValid)
             {
-                if (newArtist != null)
+                if (newArtist != "" && newArtist != null)
                 {
                     Artist artist = new Artist();
                     foreach (var artistName in _context.Artists.ToList())
@@ -103,8 +103,11 @@ namespace MusicFall2016.Controllers
                         }
                     }
                     _context.Artists.Add(artist);
+                    _context.SaveChanges();
+                    album.ArtistID = _context.Artists.Last().ArtistID;
+                    album.Artist = _context.Artists.Last();
                 }
-                if (newGenre != null)
+                if (newGenre != "" && newGenre != null)
                 {
                     Genre genre = new Genre();
                     foreach (var genreName in _context.Genres.ToList())
@@ -115,14 +118,12 @@ namespace MusicFall2016.Controllers
                             genre.Name = newGenre;
                         }
                     }
+                    
                     _context.Genres.Add(genre);
+                    _context.SaveChanges();
+                    album.GenreID = _context.Genres.Last().GenreID;
+                    album.Genre = _context.Genres.Last();
                 }
-                _context.SaveChanges();
-
-                album.ArtistID = _context.Artists.Last().ArtistID;
-                album.GenreID = _context.Genres.Last().GenreID;
-                album.Artist = _context.Artists.Last();
-                album.Genre = _context.Genres.Last();
 
                 _context.Albums.Add(album);
                 _context.SaveChanges();
