@@ -28,6 +28,7 @@ namespace MusicFall2016.Controllers
         {
             return View();
         }
+
         [HttpPost]
         public IActionResult Create(Artist a)
         {
@@ -38,9 +39,8 @@ namespace MusicFall2016.Controllers
                 {
                 }
                 _context.SaveChanges();
-                return Index();
+                return RedirectToAction("Index");
             }
-            else
             {
                 return Create();
             }
@@ -60,7 +60,9 @@ namespace MusicFall2016.Controllers
             {
                 return NotFound();
             }
-            ViewBag.AlbumList = new SelectList(_context.Albums, "Title", "ArtistID");
+
+            
+            
             return View(artist);
         }
 

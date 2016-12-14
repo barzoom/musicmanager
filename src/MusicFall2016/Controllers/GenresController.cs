@@ -43,5 +43,22 @@ namespace MusicFall2016.Controllers
                 return Create();
             }
         }
+        public IActionResult AlbumList(int? id)
+        {
+            if (id == null)
+            {
+                return RedirectToAction("Index");
+            }
+            var albums = _context.Albums
+                .Include(a => a.Artist)
+                .Include(a => a.Genre).ToList();
+            var genre = _context.Genres.SingleOrDefault(a => a.GenreID == id);
+            ViewData["Genre"] = genre.Name;
+            if (albums == null)
+            {
+                return RedirectToAction("Index");
+            }
+            return View(albums);
+        }
     }
 }

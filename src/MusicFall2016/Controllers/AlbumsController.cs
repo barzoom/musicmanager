@@ -38,7 +38,7 @@ namespace MusicFall2016.Controllers
             {
                 _context.Albums.Add(album);
                 _context.SaveChanges();
-                return RedirectToAction("Details");
+                return RedirectToAction("Index");
             }
             ViewBag.ArtistList = new SelectList(_context.Artists, "ArtistID", "Name");
             ViewBag.GenreList = new SelectList(_context.Genres, "GenreID", "Name");
