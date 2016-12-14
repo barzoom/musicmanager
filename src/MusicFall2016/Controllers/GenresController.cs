@@ -39,12 +39,9 @@ namespace MusicFall2016.Controllers
                         return RedirectToAction("Create");
                     }
                 }
-                try { _context.Genres.Add(g); }
-                catch
-                {
-                }
+                 _context.Genres.Add(g); 
                 _context.SaveChanges();
-                return Index();
+                return RedirectToAction("Index");
             }
             else
             {
