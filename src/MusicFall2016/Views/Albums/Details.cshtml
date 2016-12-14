@@ -28,6 +28,10 @@
     <label class="col-md-2">Price</label>
     <div class="col-md-10">@Model.Likes</div>
 </div>
+
+<h3>Recommendations If You Like This Album</h3>
+<div>@ViewData["recommended"]</div>
+
 <div class="form-group">
     <div class="col-md-offset-2 col-md-10">
         <a asp-action="Like" asp-route-id="@Model.AlbumID" asp-route-from="1" class="btn btn-sm btn-info" style="background-color:black">Like</a>

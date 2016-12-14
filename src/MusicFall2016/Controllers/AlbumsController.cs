@@ -213,6 +213,41 @@ namespace MusicFall2016.Controllers
             {
                 return NotFound();
             }
+
+            var recList = _context.Albums
+                .Include(a => a.Artist)
+                .Include(a => a.Genre);
+
+            String recommended = "";
+            var max = 0;
+
+            foreach(var a in recList)
+            {
+                if (max < 6)
+                { 
+                    int flag = 0;
+
+                    if (a.AlbumID != albums.AlbumID)
+                    {
+                        if (a.GenreID == albums.GenreID)
+                                flag+=2;
+                        if (a.ArtistID == albums.ArtistID)
+                                flag +=4;
+
+                        if (a.Likes>0)
+                                flag += ((a.Likes)/5);     
+                    }
+
+                    if (flag >= 3)
+                    {
+                            recommended += a.Title + " ";
+                            max++;
+                    }
+                 }
+       }
+
+            ViewData["recommended"] = recommended;
+
             return View(albums);
         }
 
