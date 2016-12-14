@@ -6,7 +6,7 @@ namespace MusicFall2016.Models
     {
         public int ArtistID { get; set; }
 
-        [Required(ErrorMessage = "Please enter a name for the Artist.")]
+        [Required(ErrorMessage = "Please enter a name for the Artist")]
         public string Name { get; set; }
 
         public string Bio { get; set; }
