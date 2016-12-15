@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using MusicFall2016.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
+using MusicFall2016.Data;
 
 // For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -10,9 +11,9 @@ namespace MusicFall2016.Controllers
 {
     public class GenresController : Controller
     {
-        private readonly MusicDbContext _context;
+        private readonly ApplicationDbContext _context;
 
-        public GenresController(MusicDbContext context)
+        public GenresController(ApplicationDbContext context)
         {
             _context = context;
         }
@@ -31,12 +32,17 @@ namespace MusicFall2016.Controllers
         {
             if (ModelState.IsValid)
             {
-                try { _context.Genres.Add(g); }
-                catch
+                foreach (Genre genreTest in _context.Genres)
                 {
+                    var name = genreTest.Name;
+                    if (name == g.Name)
+                    {
+                        return RedirectToAction("Create");
+                    }
                 }
+                 _context.Genres.Add(g); 
                 _context.SaveChanges();
-                return Index();
+                return RedirectToAction("Index");
             }
             else
             {
