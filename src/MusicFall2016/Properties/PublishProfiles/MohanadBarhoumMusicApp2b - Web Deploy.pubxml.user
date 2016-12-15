@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit http://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAtjsPi6wOc02kMitDPdNRrgAAAAACAAAAAAAQZgAAAAEAACAAAAA8xzjanfoV2Mdaj8Mw692VXs6N3/jkmOp2y5encL3RNwAAAAAOgAAAAAIAACAAAABHa/cs/6S7cy0Uvsh8uFiMvSdCR+7VzEyrZ2r2SmU8PYAAAACG6Oc0Q8wshjtJ+rba/Bj1G3d8ofJzITlw064Lx2SrY9ohcibxuv9T09yf5GHKwSe8shQcLVk6bEDfjgbr5929VyxxxQWMD7Xj0xqWPIVdqbrdjQEJRraimfp5gFqcKWUR8rYWKRCCWuf9f/hf7unITypbno4Ua4Cla4FqTSRFh0AAAAChNUlYch5ZPx194q7glvnddvxqnMN1QG05pgKnkCZ1oovY5qeZvbFh68U2Z0RCOgHiP8B+5N7uh93qfKLNvln4</EncryptedPassword>
+  </PropertyGroup>
+  <ItemGroup>
+    <EfMigrations Include="MusicFall2016.Data.ApplicationDbContext">
+      <Value>Data Source=tcp:mohanadbarhoummusicapp2bdbserver.database.windows.net,1433;Initial Catalog=MohanadBarhoumMusicApp2b_db;User Id=barzoom@mohanadbarhoummusicapp2bdbserver;Password=Ubfcs7i4tck</Value>
+    </EfMigrations>
+  </ItemGroup>
+</Project>

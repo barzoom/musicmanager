@@ -1,34 +1,9 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewBag.Title = "Index";
 }
-<head>
-    <title>Music Manager 2k16</title>
-</head>
-<body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="/">MusicFall2016</a>
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/Home/About">About</a></li>
-                    <li><a href="/Home/Contact">Contact</a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
     <div class="container body-content" style="">
         <div class="jumbotron" style="background-color: black; color:white; text-align:center"><h1>MUSIC MANAGER</h1></div>
         <a class="btn btn-lg btn-info" style="background-color:black;" href="/Albums">Go to the albums</a>
         <a class="btn btn-lg btn-warning" style="background-color:black;" href="/Artists">Go to the artists</a>
         <a class="btn btn-lg btn-danger" style="background-color:black;" href="/Genres">Go to the genres</a>
     </div>
-</body>
